@@ -1,0 +1,22 @@
+{
+  "name": "react-native-code-generator",
+  "license": "MIT",
+  "version": "1.0.0",
+  "description": "Create base64 String of qrcode or barcode.Without webview!!!",
+  "main": "./src/index.js",
+  "author": "Jerry.Luo<tiancailuohao@gmail.com>",
+  "scripts": {
+    "build": "webpack --display-error-details"
+  },
+  "dependencies": {
+    "jsbarcode": "^3.9.0"
+  },
+  "devDependencies": {
+    
+    "webpack": "^4.28.1",
+    "webpack-cli": "^3.2.1"
+  },
+  "peerDependencies": {
+    "react-native": "^0.41.2 || ^0.57.0"
+  }
+}

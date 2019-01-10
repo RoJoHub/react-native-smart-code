@@ -1,0 +1,22 @@
+{
+  "name": "react-native-code-generator",
+  "license": "MIT",
+  "version": "1.0.0",
+  "description": "Support React & ReactNative.In react-native,it's create base64 String,which is qrcode or barcode ,and without webview.In react,we use jsbarcode.",
+  "main": "./src/index.js",
+  "author": "Jerry.Luo<tiancailuohao@gmail.com>",
+  "keywords": [
+    "react-native",
+    "react-native-code-generator",
+    "qrcode",
+    "barcode",
+    "web",
+    "jsbarcode"
+  ],
+  "dependencies": {
+    "jsbarcode": "^3.9.0"
+  },
+  "peerDependencies": {
+    "react-native": "^0.41.2 || ^0.57.0"
+  }
+}
