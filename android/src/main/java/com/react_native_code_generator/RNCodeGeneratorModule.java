@@ -19,7 +19,7 @@ import java.util.Map;
 import javax.annotation.Nullable;
 
 /**
- * Created by bindo on 16/1/18.
+ * Created by Jerry-Luo on 16/1/18.
  */
 
 public class RNCodeGeneratorModule extends ReactContextBaseJavaModule {
