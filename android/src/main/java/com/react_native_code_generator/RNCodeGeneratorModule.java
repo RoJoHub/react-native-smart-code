@@ -9,6 +9,7 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.common.BitMatrix;
 
@@ -102,8 +103,11 @@ public class RNCodeGeneratorModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public String generateBarcode(BarcodeFormat type, String contents, int width, int height) throws Exception {
+        Map hints = new HashMap<>();
+        hints.put(EncodeHintType.CHARACTER_SET, "utf-8");
+        hints.put(EncodeHintType.MARGIN, 0);   //先设置margin为1
         BitMatrix matrix = new MultiFormatWriter()
-                .encode(contents, type, width, height, null);
+                .encode(contents, type, width, height, hints);
         int matrixWidth = matrix.getWidth();
         int matrixHeight = matrix.getHeight();
         int[] pixels = new int[matrixWidth * matrixHeight];
