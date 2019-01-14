@@ -13,8 +13,8 @@
   },
   "devDependencies": {
     
-    "webpack": "^4.28.1",
-    "webpack-cli": "^3.2.1"
+    "webpack": "4.28.1",
+    "webpack-cli": "3.2.1"
   },
   "peerDependencies": {
     "react-native": "^0.41.2 || ^0.57.0"
