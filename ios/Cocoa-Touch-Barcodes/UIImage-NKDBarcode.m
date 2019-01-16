@@ -17,7 +17,7 @@
     NKDBarcodeOffscreenView 	* view = [[NKDBarcodeOffscreenView alloc] initWithBarcode:barcode];
     CGRect			rect = [view bounds];
     UIImage			* image = [view imageInsideRect:rect];
-    [view release];
+
     return image;
 }
 
@@ -25,7 +25,7 @@
     NKDBarcodeOffscreenView 	* view = [[NKDBarcodeOffscreenView alloc] initWithBarcode:barcode];
     CGRect			rect = [view bounds];
     NSData			* pdf = [view pdfInsideRect:rect];
-    [view release];
+
     return pdf;
 }
 
@@ -34,7 +34,6 @@
     NKDBarcodeOffscreenView 	* view = [[NKDBarcodeOffscreenView alloc] initWithBarcode:barcode];
 	[view setFrame:rect];
     UIImage			* image = [view imageInsideRect:rect];
-    [view release];
     return image;
 }
 

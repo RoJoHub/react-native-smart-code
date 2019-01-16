@@ -3,12 +3,58 @@
 ## Getting started
 
 `$ npm install react-native-smart-code --save`
+
 or
+
 `$ yarn add react-native-smart-code`
 
 ### Mostly automatic installation
 
 `$ react-native link react-native-smart-code`
+
+### Mostly automatic install with CocoaPods
+
+1. `npm install react-native-smart-code --save` or `$ yarn add react-native-smart-code`
+2. Add the plugin dependency to your Podfile, pointing at the path where NPM installed it:
+
+```obj-c
+pod 'react-native-smart-code', path: '../node_modules/react-native-smart-code/ios'
+```
+
+3. Run `pod install`
+
+_Note:_ You might need to adjust your Podfile following the example below:
+
+```diff
+target 'yourTargetName' do
+  # See http://facebook.github.io/react-native/docs/integration-with-existing-apps.html#configuring-cocoapods-dependencies
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+    'Core',
+    'CxxBridge', # Include this for RN >= 0.47
+    'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
+    'RCTText',
+    'RCTNetwork',
+    'RCTWebSocket', # Needed for debugging
+    'RCTAnimation', # Needed for FlatList and animations running on native UI thread
+    # Add any other subspecs you want to use in your project
+  ]
+
+  # Explicitly include Yoga if you are using RN >= 0.42.0
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+
+  # Third party deps podspec link
++ pod 'react-native-smart-code', path: '../node_modules/react-native-smart-code/ios'
+
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if target.name == "React"
+      target.remove_from_project
+    end
+  end
+end
+```
 
 ### Manual installation
 
