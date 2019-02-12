@@ -3,7 +3,7 @@ version = JSON.parse(File.read('../package.json'))["version"]
 
 Pod::Spec.new do |s|
 
-  s.name            = "RNCodeGenerator"
+  s.name            = "react-native-smart-code"
   s.version         = version
   s.homepage        = "https://github.com/RoJoHub/react-native-smart-code"
   s.summary         = "Support React & ReactNative.In react-native,it's create base64 String,which is qrcode or barcode ,and without webview.In react,we use jsbarcode."

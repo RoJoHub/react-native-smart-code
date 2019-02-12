@@ -43,7 +43,7 @@ target 'yourTargetName' do
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
 
   # Third party deps podspec link
-+ pod 'react-native-smart-code', path: '../node_modules/react-native-smart-code/ios'
++ pod 'react-native-smart-code', path: '../node_modules/react-native-smart-code/ios/RNCodeGenerator.podspec'
 
 end
 
