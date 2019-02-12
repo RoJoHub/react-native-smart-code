@@ -18,7 +18,7 @@ or
 2. Add the plugin dependency to your Podfile, pointing at the path where NPM installed it:
 
 ```obj-c
-pod 'react-native-smart-code', path: '../node_modules/react-native-smart-code/ios'
+pod 'react-native-smart-code', path: '../node_modules/react-native-smart-code/ios/RNCodeGenerator.podspec'
 ```
 
 3. Run `pod install`
