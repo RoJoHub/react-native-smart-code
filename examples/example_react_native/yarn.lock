@@ -3552,10 +3552,10 @@ metro-babel7-plugin-react-transform@0.48.5:
   dependencies:
     "@babel/helper-module-imports" "^7.0.0"
 
-metro-babel7-plugin-react-transform@0.51.1:
-  version "0.51.1"
-  resolved "http://registry.npm.taobao.org/metro-babel7-plugin-react-transform/download/metro-babel7-plugin-react-transform-0.51.1.tgz#9cce2c340cc4006fc82aa6dfab27af22d592607e"
-  integrity sha1-nM4sNAzEAG/IKqbfqyevItWSYH4=
+metro-babel7-plugin-react-transform@0.53.1:
+  version "0.53.1"
+  resolved "https://registry.yarnpkg.com/metro-babel7-plugin-react-transform/-/metro-babel7-plugin-react-transform-0.53.1.tgz#9ad31e5c84f5003333a6a3cf79f2d093cd3b2ddc"
+  integrity sha512-98lEpTu7mox/7QurxVuLnbjrGDdayjpS2Z1T4vkLcP+mBxzloKJuTRnmtyWC8cNlx9qjimHGDlqtNY78rQ8rsA==
   dependencies:
     "@babel/helper-module-imports" "^7.0.0"
 
@@ -3643,10 +3643,10 @@ metro-react-native-babel-preset@0.48.5:
     metro-babel7-plugin-react-transform "0.48.5"
     react-transform-hmr "^1.0.4"
 
-metro-react-native-babel-preset@0.51.1:
-  version "0.51.1"
-  resolved "http://registry.npm.taobao.org/metro-react-native-babel-preset/download/metro-react-native-babel-preset-0.51.1.tgz#44aeeedfea37f7c2ab8f6f273fa71b90fe65f089"
-  integrity sha1-RK7u3+o398Krj28nP6cbkP5l8Ik=
+metro-react-native-babel-preset@0.53.1:
+  version "0.53.1"
+  resolved "https://registry.yarnpkg.com/metro-react-native-babel-preset/-/metro-react-native-babel-preset-0.53.1.tgz#6cd9e41a1b9a6e210e71ef2adf114219b4eaf2ec"
+  integrity sha512-Uf8EGL8kIPhDkoSdAAysNPxPQclUS2R1QC4cwnc8bkk2f6yqGn+1CorfiY9AaqlLEth5mKQqdtRYFDTFfB9QyA==
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.0.0"
     "@babel/plugin-proposal-export-default-from" "^7.0.0"
@@ -3656,6 +3656,7 @@ metro-react-native-babel-preset@0.51.1:
     "@babel/plugin-proposal-optional-chaining" "^7.0.0"
     "@babel/plugin-syntax-dynamic-import" "^7.0.0"
     "@babel/plugin-syntax-export-default-from" "^7.0.0"
+    "@babel/plugin-syntax-flow" "^7.2.0"
     "@babel/plugin-transform-arrow-functions" "^7.0.0"
     "@babel/plugin-transform-block-scoping" "^7.0.0"
     "@babel/plugin-transform-classes" "^7.0.0"
@@ -3681,7 +3682,7 @@ metro-react-native-babel-preset@0.51.1:
     "@babel/plugin-transform-typescript" "^7.0.0"
     "@babel/plugin-transform-unicode-regex" "^7.0.0"
     "@babel/template" "^7.0.0"
-    metro-babel7-plugin-react-transform "0.51.1"
+    metro-babel7-plugin-react-transform "0.53.1"
     react-transform-hmr "^1.0.4"
 
 metro-resolver@0.48.5:
@@ -4549,7 +4550,7 @@ react-is@^16.6.3:
   integrity sha1-wb0hxk8fE2TG9waV7ALWk5L0G/o=
 
 "react-native-smart-code@file:../..":
-  version "1.0.0"
+  version "1.0.3"
   dependencies:
     jsbarcode "^3.9.0"
 
