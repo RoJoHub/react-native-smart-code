@@ -1,4 +1,16 @@
 apply plugin: 'com.android.library'
+import groovy.json.JsonSlurper
+
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+def DEFAULT_COMPILE_SDK_VERSION   = 28
+def DEFAULT_BUILD_TOOLS_VERSION   = "28.0.3"
+def DEFAULT_TARGET_SDK_VERSION    = 28
+def DEFAULT_MIN_SDK_VERSION       = 16
+
+
+
 buildscript {
     repositories {
         jcenter()
@@ -14,16 +26,13 @@ buildscript {
 }
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "27.0.3"
-
-
+    compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
+    buildToolsVersion safeExtGet('buildToolsVersion', DEFAULT_BUILD_TOOLS_VERSION)
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 26
+        minSdkVersion safeExtGet('minSdkVersion', DEFAULT_TARGET_SDK_VERSION)
+        targetSdkVersion safeExtGet('targetSdkVersion', DEFAULT_MIN_SDK_VERSION)
         versionCode 1
-        versionName "1.0"
-
+        versionName computeVersionName()
     }
 
     buildTypes {
@@ -44,7 +53,7 @@ repositories {
     }
 }
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "com.facebook.react:react-native:+"
-    compile 'com.google.zxing:core:3.2.1'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.facebook.react:react-native:+"
+    implementation 'com.google.zxing:core:3.2.1'
 }
