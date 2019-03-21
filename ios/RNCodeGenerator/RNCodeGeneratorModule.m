@@ -97,7 +97,7 @@ RCT_EXPORT_METHOD(
     //3.给过滤器添加数据
     NSData *data = [code dataUsingEncoding:NSUTF8StringEncoding];
     [filter setValue:data forKey:@"inputMessage"];
-    
+    [filter setValue:@"H" forKey:@"inputCorrectionLevel"];
     //4.获取输出二维码
     CIImage *outputImage = [filter outputImage];
     UIImage *qrcode=[RNCodeGeneratorModule createNonInterpolatedUIImageFromCIImage:outputImage withSize:size];
@@ -107,6 +107,7 @@ RCT_EXPORT_METHOD(
 +(UIImage *)createNonInterpolatedUIImageFromCIImage:(CIImage *)image withSize:(CGSize)size
 {
     CGRect extent = CGRectIntegral(image.extent);
+    CGRect withOutMargin = CGRectMake(1, 1, extent.size.width-2, extent.size.height-2);
     CGFloat scale = MIN(size.width/CGRectGetWidth(extent), size.height/CGRectGetHeight(extent));
     
     //1.创建bitmap
@@ -115,7 +116,7 @@ RCT_EXPORT_METHOD(
     CGColorSpaceRef cs = CGColorSpaceCreateDeviceGray();
     CGContextRef bitmapRef = CGBitmapContextCreate(nil, width, height, 8, 0, cs, (CGBitmapInfo)kCGImageAlphaNone);
     CIContext *context = [CIContext contextWithOptions:nil];
-    CGImageRef bitmapImage = [context createCGImage:image fromRect:extent];
+    CGImageRef bitmapImage = [context createCGImage:image fromRect:withOutMargin];
     CGContextSetInterpolationQuality(bitmapRef, kCGInterpolationNone);
     CGContextScaleCTM(bitmapRef, scale, scale);
     CGContextDrawImage(bitmapRef, extent, bitmapImage);
