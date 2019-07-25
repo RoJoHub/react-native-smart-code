@@ -97,7 +97,7 @@ RCT_EXPORT_METHOD(
     //3.给过滤器添加数据
     NSData *data = [code dataUsingEncoding:NSUTF8StringEncoding];
     [filter setValue:data forKey:@"inputMessage"];
-    [filter setValue:@"H" forKey:@"inputCorrectionLevel"];
+    [filter setValue:@"L" forKey:@"inputCorrectionLevel"];
     //4.获取输出二维码
     CIImage *outputImage = [filter outputImage];
     UIImage *qrcode=[RNCodeGeneratorModule createNonInterpolatedUIImageFromCIImage:outputImage withSize:size];
