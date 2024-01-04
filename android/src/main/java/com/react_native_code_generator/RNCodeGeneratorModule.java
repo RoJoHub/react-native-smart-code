@@ -123,7 +123,7 @@ public class RNCodeGeneratorModule extends ReactContextBaseJavaModule {
         bitmap.setPixels(pixels, 0, matrixWidth, 0, 0, matrixWidth, matrixHeight);
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
-        String barcodeBase64 = Base64.encodeToString(outputStream.toByteArray(), Base64.DEFAULT);
+        String barcodeBase64 = Base64.encodeToString(outputStream.toByteArray(), Base64.NO_WRAP);
         return barcodeBase64;
     }
 
