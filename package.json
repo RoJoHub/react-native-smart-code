@@ -26,6 +26,6 @@
     "jsbarcode": "^3.9.0"
   },
   "peerDependencies": {
-    "react-native": "^0.41.2 || ^0.57.0"
+    "react-native": "^0.73.0"
   }
 }
