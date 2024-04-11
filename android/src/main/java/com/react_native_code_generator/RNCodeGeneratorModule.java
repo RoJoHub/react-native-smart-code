@@ -16,7 +16,8 @@ import com.google.zxing.common.BitMatrix;
 import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
-
+import android.graphics.Color;
+import android.graphics.Canvas;
 import javax.annotation.Nullable;
 
 /**
@@ -103,24 +104,28 @@ public class RNCodeGeneratorModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public String generateBarcode(BarcodeFormat type, String contents, int width, int height) throws Exception {
-        Map hints = new HashMap<>();
+        Map<EncodeHintType, Object> hints = new HashMap<>();
         hints.put(EncodeHintType.CHARACTER_SET, "utf-8");
-        hints.put(EncodeHintType.MARGIN, 0);   //先设置margin为1
-        BitMatrix matrix = new MultiFormatWriter()
-                .encode(contents, type, width, height, hints);
+        hints.put(EncodeHintType.MARGIN, 0); // Set margin to 0
+        BitMatrix matrix = new MultiFormatWriter().encode(contents, type, width, height, hints);
+
+        // Create a Bitmap with a white background
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        canvas.drawColor(Color.WHITE);
+
         int matrixWidth = matrix.getWidth();
         int matrixHeight = matrix.getHeight();
-        int[] pixels = new int[matrixWidth * matrixHeight];
+
+        // Draw the barcode on the white background
         for (int y = 0; y < matrixHeight; y++) {
             for (int x = 0; x < matrixWidth; x++) {
                 if (matrix.get(x, y)) {
-                    pixels[y * matrixWidth + x] = 0xff000000;
+                    bitmap.setPixel(x, y, Color.BLACK);
                 }
             }
         }
-        Bitmap bitmap = Bitmap.createBitmap(matrixWidth, matrixHeight,
-                Bitmap.Config.ARGB_8888);
-        bitmap.setPixels(pixels, 0, matrixWidth, 0, 0, matrixWidth, matrixHeight);
+
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
         String barcodeBase64 = Base64.encodeToString(outputStream.toByteArray(), Base64.NO_WRAP);
