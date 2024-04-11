@@ -1,6 +1,6 @@
 import JsBarcode from 'jsbarcode';
 import QRCode from './qrcode';
-import { resolve } from 'path';
+
 const Type = {
   Code128: 'Code128',
   QRCode: 'QRCode'
